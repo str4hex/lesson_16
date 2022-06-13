@@ -94,7 +94,7 @@ def order_page(order_id):
                                                                        Order.price:price,
                                                                        Order.customer_id:customer_id,
                                                                        Order.executor_id:executor_id})
-            db.session.commit()
+                db.session.commit()
             return {"message":"order update successful"}
         except:
             return {"message":"order update error"}
