@@ -9,7 +9,7 @@ class Order(db.Model):
     description = db.Column(db.String)
     start_date = db.Column(db.Date)
     end_date = db.Column(db.Date)
-    adress = db.Column(db.String)
+    address = db.Column(db.String)
     price = db.Column(db.Integer)
     customer_id = db.Column(db.Integer)
     executor_id = db.Column(db.Integer)

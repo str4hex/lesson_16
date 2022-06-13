@@ -9,31 +9,34 @@ Users = "./json/Users.json"
 Orders = "./json/Orders.json"
 Offers = "./json/Offers.json"
 
+"""with open(Users, "r", encoding="utf-8") as json_user:
+    load_json = json.load(json_user)
+    for loads in load_json:
+        users = User(id=loads["id"], first_name=loads["first_name"], last_name=loads["last_name"], age=loads["age"],
+                     email=loads["email"], role=loads["role"], phone=loads["phone"])
+        with app.app_context():
+            db.session.add(users)
+            db.session.commit()
+    print(f'{json_user} - добавлено в СУБД')"""
 
-class Write_db():
+with open(Orders, "r", encoding="utf-8") as json_user:
+    load_json = json.load(json_user)
+    for loads in load_json:
+        users = Order(id=loads["id"], name=loads["name"], description=loads["description"], start_date=["start_date"],
+                      end_date=loads["end_date"], address=loads["address"], price=loads["price"],
+                      customer_id=loads["customer_id"], executor_id=loads["executor_id"])
 
-    def __init__(self, path):
-        self.path = path
+        with app.app_context():
+            db.session.add(users)
+            db.session.commit()
+    print(f'{json_user} - добавлено в СУБД')
 
-    def open_file(self):
-        with open(f"{self.path}", "r", encoding="utf-8") as file:
-            load_json_file = json.load(file)
-            for element in range(len(load_json_file)):
-                element_list = load_json_file[element]
+with open(Offers, "r", encoding="utf-8") as json_user:
+    load_json = json.load(json_user)
+    for loads in load_json:
+        users = Offer(id=loads["id"], order_id=loads["order_id"], executor_id=loads["executor_id"])
 
-                result = json.dumps(element_list).replace(":","=").replace('"',"").replace("{","").replace("}","").\
-                    replace("=","='").replace(",","',").replace(" ","").replace("'",'"')
-            with app.app_context():
-                users = User(id=1, first_name="Hudson", last_name="Pauloh", age=31, email="elliot16@mymail.com",
-                             role="customer", phone="6197021684", )
-                db.session.add(users)
-                db.session.commit()
-
-open_files = Write_db(Users)
-open_files.open_file()
-
-"""with app.app_context():
-    users = User(id=1, first_name="Hudson", last_name="Pauloh", age=31, email="elliot16@mymail.com",
-                 role="customer", phone="6197021684",)
-    db.session.add(users)
-    db.session.commit()"""
+        with app.app_context():
+            db.session.add(users)
+            db.session.commit()
+    print(f'{json_user} - добавлено в СУБД')
