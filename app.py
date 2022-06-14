@@ -25,7 +25,7 @@ with app.app_context():
 
 app.register_blueprint(user, url_prefix='/users')
 app.register_blueprint(order, url_prefix='/orders')
-app.register_blueprint(offer,url_prefix="/offer")
+app.register_blueprint(offer,url_prefix="/offers")
 
 
 if __name__ == '__main__':

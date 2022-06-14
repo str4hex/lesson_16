@@ -39,7 +39,7 @@ def user_all_page():
                 db.session.commit()
             return {"message": "add user successful"}
         except:
-            return {"error"}
+            return {"messsage":"error"}
 
 
 @user.route("/<int:id_user>", methods=["GET", "PUT", "PUT", "DELETE"])
